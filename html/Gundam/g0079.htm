@@ -1,0 +1,371 @@
+<html>
+<head>
+<title>機動戰士鋼彈-一年戰爭</title>
+
+<script language="JavaScript">
+<!--
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_timelineGoto(tmLnName, fNew, numGotos) { //v2.0
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,lastKeyFr,propNum,theObj;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (numGotos != null)
+    if (tmLn.gotoCount == null) tmLn.gotoCount = 1;
+    else if (tmLn.gotoCount++ >= numGotos) {tmLn.gotoCount=0; return}
+  jmpFwd = (fNew > tmLn.curFrame);
+  for (i = 0; i < tmLn.length; i++) {
+    sprite = (jmpFwd)? tmLn[i] : tmLn[(tmLn.length-1)-i]; //count bkwds if jumping back
+    if (sprite.charAt(0) == "s") {
+      numKeyFr = sprite.keyFrames.length;
+      firstKeyFr = sprite.keyFrames[0];
+      lastKeyFr = sprite.keyFrames[numKeyFr - 1];
+      if ((jmpFwd && fNew<firstKeyFr) || (!jmpFwd && lastKeyFr<fNew)) continue; //skip if untouchd
+      for (keyFrm=1; keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]; keyFrm++);
+      for (j=0; j<sprite.values.length; j++) {
+        props = sprite.values[j];
+        if (numKeyFr == props.length) propNum = keyFrm-1 //keyframes only
+        else propNum = Math.min(Math.max(0,fNew-firstKeyFr),props.length-1); //or keep in legal range
+        if (sprite.obj != null) {
+          if (props.prop2 == null) sprite.obj[props.prop] = props[propNum];
+          else        sprite.obj[props.prop2][props.prop] = props[propNum];
+      } }
+    } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+  }
+  tmLn.curFrame = fNew;
+  if (tmLn.ID == 0) eval('MM_timelinePlay(tmLnName)');
+}
+
+function MM_initTimelines() {
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    document.MM_Time = new Array(2);
+    document.MM_Time[0] = new Array(1);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 15);
+    document.MM_Time[0][0].values = new Array(2);
+    document.MM_Time[0][0].values[0] = new Array(-167,-155,-143,-132,-120,-108,-96,-85,-73,-61,-49,-37,-26,-14,-2);
+    document.MM_Time[0][0].values[0].prop = "left";
+    document.MM_Time[0][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[0].lastFrame = 15;
+    document.MM_Time[1] = new Array(1);
+    document.MM_Time["Timeline2"] = document.MM_Time[1];
+    document.MM_Time[1].MM_Name = "Timeline2";
+    document.MM_Time[1].fps = 15;
+    document.MM_Time[1][0] = new String("sprite");
+    document.MM_Time[1][0].slot = 1;
+    if (ns)
+        document.MM_Time[1][0].obj = document["Layer1"];
+    else
+        document.MM_Time[1][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[1][0].keyFrames = new Array(1, 15);
+    document.MM_Time[1][0].values = new Array(2);
+    document.MM_Time[1][0].values[0] = new Array(-2,-14,-26,-37,-49,-61,-73,-85,-96,-108,-120,-132,-143,-155,-167);
+    document.MM_Time[1][0].values[0].prop = "left";
+    document.MM_Time[1][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[1][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[1][0].values[0].prop2 = "style";
+        document.MM_Time[1][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[1].lastFrame = 15;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+</head>
+<body bgcolor="black" text="white">
+<div align="center"><table border="0" cellspacing="4" width="100%" height="100%">
+<center>
+    <tr>
+        <td valign="top" width="50%" height="211" align="center">
+<p align="center"><font size="2"><img border="0" src="amu.jpg" width="176" height="180"><br>
+          阿姆羅．雷<br>
+          (ヤу①．яユ)</font></p>
+        </td>
+        <td valign="top" width="50%" height="216" rowspan="2" align="center"><p><font face="新細明體" size="2" color="#E6E6E6"><br>
+          </font>
+          </p> 
+          <p align="left"><font color="#DBDBDB" size="2" face="新細明體">本篇的主角，是地球聯邦軍提姆．雷的獨生子，因居住的殖民ＳＩＤＥ７受到吉翁軍的攻擊而意外成了鋼彈的專任駕駛員,並成為白色基地的成員，憑著鋼彈的優秀性能打退了吉 
+            翁公國的王牌大將紅色 彗星－夏亞(當然這也是實力)，和夏亞從此成為宿敵，而新人類能力覺醒後更銳不可當。15歲 </font></p>     
+        </td>     
+    </tr>     
+    <tr>    
+        <td valign="top" width="50%" height="19" align="center">    
+          <hr>    
+        </td>    
+    </tr>    
+    </center><tr>
+      <td valign="middle" width="50%" height="166" rowspan="2" align="center"> 
+        <p align="left"><font color="#DBDBDB" size="2">本名凱斯伯.雷姆.戴肯,是吉翁軍的王牌大 將，在吉翁軍被譽為”紅色慧星”是一位超實力派的駕駛員，為吉翁國國父吉翁．索姆． 
+          戴肯之子，也就是雪拉的哥哥。拉拉的死，使夏亞新人類能力完全覺醒，和阿姆羅形成人類 的 對 決。2 0 歲。</font></p>        
+        </td>         
+    <center>         
+         
+        <td valign="top" width="50%" height="157" align="center">         
+          <p align="center"><font size="2" face="新細明體"><font color="#E6E6E6"><br>      
+          <img src="char-.jpg" width="184" height="188"><br>      
+          </font><font color="#BBFFFF">夏亞．阿茲那布<br>      
+          (Ёцヤ.．ヤИЮйю)</font></font></p>      
+</td>       
+    </center></tr>       
+    <tr>      
+        <td valign="top" width="50%" height="18" align="center">      
+          <hr>      
+      </td>       
+    </tr>      
+    <tr>       
+        <td valign="top" width="50%" height="159" align="center"><p align="center"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#E6E6E6"><img src="bright.jpg" width="183" height="183"><br>      
+          </font>      
+          <font LANG="ZH-TW" color="#BBFFFF">布萊特．諾亞<br>      
+          (йьユЬ．вヤ)</font></font></span></p>      
+        </td>      
+        <td valign="top" width="50%" height="163" rowspan="2" align="center"><span style="letter-spacing: 0"><font face="新細明體" size="2" color="#E6E6E6"><br>      
+          </font></span>      
+          <p><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">　</font></span></p>
+          
+        <p align="left"><font color="#DBDBDB" face="新細明體" size="2"><span style="letter-spacing: 0">做事認真優秀的青年，,偶爾優柔寡斷，以預備軍官身份進入ＳＩＤＥ７，卻因艦長陣亡</span></font></p>
+        <div id="Layer1" style="position:absolute; left:-2px; top:11px; width:210px; height:260px; z-index:1"> 
+          <table width="99%" border="1" height="276">
+            <tr> 
+              <td colspan="2" height="2" bgcolor="#3399CC"> 
+                <div align="center"><font size="2">人物介紹選單</font></div>
+              </td>
+              <td width="17%" height="2"> 
+                <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline1');MM_timelineGoto('Timeline1','1')"><img src="tr.gif" width="34" height="34" border="0" alt="開啟"></a></div>
+              </td>
+            </tr>
+            <tr> 
+              <td colspan="2" height="146" bgcolor="#FFCC99"> 
+                <p align="center"><font size="2" color="#333399"><a href="g0079.htm">機動戰士鋼彈</a></font></p>
+                <p align="center"><font color="#333399" size="2"><a href="p0083.htm">機動戰士鋼彈0083</a></font></p>
+                <p align="center"><font color="#333399" size="2"><a href="p0083.htm">機動戰士Z鋼彈</a></font></p>
+                <p align="center"><font color="#333399" size="2"><a href="photo/zzp.htm">機動戰士鋼彈ZZ</a></font></p>
+                <p align="center"><font color="#333399" size="2"><a href="p_0093.htm">機動戰士鋼彈~逆襲的夏亞</a></font></p>
+                <p align="center"><font color="#333399" size="2"><a href="p_08ms.htm">機動戰士鋼彈第08MS小隊</a></font></p>
+              </td>
+              <td width="17%" height="146">&nbsp;</td>
+            </tr>
+            <tr> 
+              <td colspan="2" height="41">&nbsp;</td>
+              <td width="17%" height="41"> 
+                <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline2');MM_timelineGoto('Timeline2','1')"><img src="tl.gif" width="34" height="34" border="0" alt="關閉"></a></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p align="left"><font color="#DBDBDB" face="新細明體" size="2"><span style="letter-spacing: 0">而被委任指揮白色基地年。19歲</span></font></p>   
+        </td>    
+    </tr>    
+    <tr>   
+        <td valign="top" width="50%" height="1" align="center">   
+          <hr>   
+        </td>   
+    </tr>   
+    
+    <tr>    
+        <td valign="top" width="50%" height="180" rowspan="2" align="center">   
+          <p align="left"><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">&nbsp;</font></span></p>  
+          <p align="left"><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">　</font></span></p>  
+          <p align="left">　</p>  
+          <p align="left"><span style="letter-spacing: 0"><font face="新細明體" size="2" color="#DBDBDB">本名阿爾蒂西亞索姆．戴肯，是夏亞的親妹妹，卻加入聯邦軍，是吉翁家的遺族．17歲</font></span></p>   
+        </td>   
+        <center>   
+   
+        <td valign="top" width="50%" height="189" align="center">   
+          <p align="center"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#E6E6E6"><img src="sera-.jpg" width="188" height="188"><br>   
+          </font><font color="#BBFFFF">   
+          <font LANG="ZH-TW" size="2">雪拉．瑪斯</font><br>   
+          (Йユь．сЗ)</font></font></span></p>   
+</td>    
+    </center></tr>    
+        <tr>   
+        <td valign="top" width="50%" height="1" align="center">   
+          <hr>   
+          </td>    
+        </tr>   
+    <tr>    
+        <td valign="top" width="50%" height="139" align="center"><p align="center"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#E6E6E6"><img src="mira.jpg" width="193" height="158"><br>   
+          </font><font LANG="ZH-TW" color="#BBFFFF">米萊．矢島<br>   
+          (тьユ．чЁс)</font></font></span></p>   
+        </td>   
+        <td valign="top" width="50%" height="170" rowspan="2" align="center"><span style="letter-spacing: 0"><font face="新細明體" size="2" color="#E6E6E6"><br>   
+          </font></span>   
+          <p><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">　</font></span></p>
+          <p><span style="letter-spacing: 0"><font face="新細明體" size="2" color="#DBDBDB">
+        父親為前聯邦政府高官,因為擁有太空滑翔機駕駛執照而被委任為白色基地舵手,對阿姆羅和芙勞而言,她有媽媽的味道．18歲</font></span></p>    
+        </td>     
+    </tr>     
+        <tr>    
+        <td valign="top" width="50%" height="28" align="center">    
+          <hr>    
+        </td>    
+        </tr>    
+     
+    <tr>     
+        <td valign="top" width="50%" height="152" rowspan="2" align="center">    
+          <p align="left"><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">&nbsp;</font></span></p>    
+          <p align="left"><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">　</font></span></p>    
+          <p align="left">　</p>    
+          <p align="left"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#DBDBDB">地球聯邦軍的統帥，了解並支持ＷＢ，最後被索拉．</font><font face="新細明體" color="#E6E6E6">雷（太陽能雷射系統），攻擊而亡<br>
+          。</font></font></span></p>    
+        </td>    
+        <center>    
+    
+        <td valign="top" width="50%" height="172" align="center">    
+          <p align="center"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#E6E6E6"><br>   
+          <img src="rebil.jpg" width="156" height="179"><br>   
+          </font><font LANG="ZH-TW" color="#BBFFFF">雷比爾將軍<br>   
+          (яжю)</font></font></span></p>   
+</td>    
+    </center></tr>    
+        <tr>   
+        <td valign="top" width="50%" height="1" align="center">   
+          <hr>   
+          </td>    
+        </tr>   
+    <tr>    
+        <td valign="top" width="50%" height="134" align="center"><p align="center"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#E6E6E6"><img src="halo.jpg" width="163" height="136"><br>   
+          </font>   
+          <font LANG="ZH-TW" color="#BBFFFF">哈嘍<br>   
+          (г①)</font></font></span></p>   
+        </td>   
+        <td valign="top" width="50%" height="169" rowspan="2" align="center"><span style="letter-spacing: 0"><font color="#E6E6E6"   
+        size="2" face="新細明體"><br>   
+ </font></span>    
+          <p><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">　</font></span></p>
+          <p><span style="letter-spacing: 0"><font color="#DBDBDB"
+        size="2" face="新細明體">
+        阿姆羅自制的電腦自律玩具 </font></span> </p> 
+        </td>  
+    </tr>  
+        <tr> 
+        <td valign="top" width="50%" height="23" align="center"> 
+          <hr> 
+        </td> 
+        </tr> 
+  
+    <tr>  
+        <td valign="top" width="50%" height="171" rowspan="2" align="center"> 
+          <p align="left"></p>  
+          <p align="left">　</p>  
+          <p align="left">　</p>  
+          <p align="left"><span style="letter-spacing: 0"><font face="新細明體" size="2" color="#DBDBDB">德金的小兒子，因夏亞的陰謀所以被白色基地擊墜而死。最後大喊一聲”吉翁公國ソ榮光!!!~~”右圖為他死亡的前一刻．．．</font></span></p>  
+        </td>    
+        <center>    
+    
+        <td valign="top" width="50%" height="173" align="center">    
+          <p align="center"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#E6E6E6"><br>   
+          <img src="galoma.jpg" width="149"   
+        height="159"><br>   
+          </font><font LANG="ZH-TW" color="#BBFFFF">卡爾馬．查比<br>   
+          (ロюс．Еж)</font></font></span></p>   
+</td>    
+    </center></tr>    
+        <tr>   
+        <td valign="top" width="50%" height="8" align="center">   
+          <hr>   
+          </td>    
+        </tr>   
+    <tr>    
+        <td valign="top" width="50%" height="175" align="center"><p align="center"><span style="letter-spacing: 0"><font size="2" color="#BBFFFF" face="新細明體"><img src="kisilia.jpg" width="191"   
+        height="190"><font LANG="ZH-TW"><br>   
+          基西莉亞．查比<br>   
+          (ヰЁэヤ．Еж)</font></font></span></p>   
+        </td>   
+        <td valign="top" width="50%" height="204" rowspan="2" align="center">  
+          <p><span style="letter-spacing: 0"><font color="#E6E6E6" size="2" face="新細明體">&nbsp;</font></span></p>  
+          <p><font size="2" face="新細明體">　</font></p>  
+          <p><span style="letter-spacing: 0"><font face="新細明體" size="2" color="#DBDBDB">查比家長女，吉翁的突擊機動軍司令，政治手腕高名，個性冷澈，常與兄長基連對立，旗下指揮卡爾馬，夏亞，馬克貝等人。最後因不滿基連害死了父親德金而親手殺了基連    
+          （直接貫川腦門）．２４歲戴面罩的原因是不希望別人看見她有些皺紋的臉和不喜戰鬥的空氣。       
+          </font>       
+          </span>       
+          </p>     
+        </td>        
+    </tr>        
+        <tr>       
+        <td valign="top" width="50%" height="24" align="center">       
+          <hr>       
+        </td>       
+        </tr>       
+    <tr>        
+        <td valign="top" width="50%" height="136" rowspan="2" align="center">       
+        
+        <p align="left">　</p>        
+        <p align="left">　</p>        
+        <p align="left"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#DBDBDB">    
+        將吉翁公國變成獨裁國家，並宣告獨立，向地球聯邦挑起戰爭，雖然隱居，但仍以公國國王之名保有權力，對基連，基西莉亞，多茲爾，而言，是個嚴父最後被索拉．雷攻擊而亡６２歲。<br>       
+        </font><font face="新細明體" color="#E6E6E6">    
+        <br>       
+        </font></font></span></p>       
+        </td>       
+        <center>      
+      
+        <td valign="top" width="50%" bordercolor="#D3FDC1" height="178" align="center">      
+          <p align="center"><span style="letter-spacing: 0"><font size="2" face="新細明體"><font color="#E6E6E6"><br>     
+          </font><font color="#BBFFFF"><img src="terking.jpg" width="159" height="167"> <br>     
+          <font LANG="ZH-TW"> 德 金 ． 索          
+        多．查比<br>         
+          (Ыヰ⑦．ЛЭ．Еж)</font></font></font></span></p>        
+</td>         
+    </center></tr>         
+        <tr>        
+        <td valign="top" width="50%" bordercolor="#D3FDC1" height="1" align="center">        
+          <hr>        
+          </td>         
+        </tr>        
+</table>         
+</div>         
+         
+<p align="center"><a href="P2.htm"><font color="#FFFFB5">下一頁</font></a></p>      
+      
+</body>      
+</html>      

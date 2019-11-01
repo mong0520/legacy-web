@@ -1,0 +1,501 @@
+<html>
+
+<head>
+
+<title>機動戰士Z鋼彈</title>
+<script language="JavaScript">
+<!--
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_timelineGoto(tmLnName, fNew, numGotos) { //v2.0
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,lastKeyFr,propNum,theObj;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (numGotos != null)
+    if (tmLn.gotoCount == null) tmLn.gotoCount = 1;
+    else if (tmLn.gotoCount++ >= numGotos) {tmLn.gotoCount=0; return}
+  jmpFwd = (fNew > tmLn.curFrame);
+  for (i = 0; i < tmLn.length; i++) {
+    sprite = (jmpFwd)? tmLn[i] : tmLn[(tmLn.length-1)-i]; //count bkwds if jumping back
+    if (sprite.charAt(0) == "s") {
+      numKeyFr = sprite.keyFrames.length;
+      firstKeyFr = sprite.keyFrames[0];
+      lastKeyFr = sprite.keyFrames[numKeyFr - 1];
+      if ((jmpFwd && fNew<firstKeyFr) || (!jmpFwd && lastKeyFr<fNew)) continue; //skip if untouchd
+      for (keyFrm=1; keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]; keyFrm++);
+      for (j=0; j<sprite.values.length; j++) {
+        props = sprite.values[j];
+        if (numKeyFr == props.length) propNum = keyFrm-1 //keyframes only
+        else propNum = Math.min(Math.max(0,fNew-firstKeyFr),props.length-1); //or keep in legal range
+        if (sprite.obj != null) {
+          if (props.prop2 == null) sprite.obj[props.prop] = props[propNum];
+          else        sprite.obj[props.prop2][props.prop] = props[propNum];
+      } }
+    } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+  }
+  tmLn.curFrame = fNew;
+  if (tmLn.ID == 0) eval('MM_timelinePlay(tmLnName)');
+}
+
+function MM_initTimelines() {
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    document.MM_Time = new Array(2);
+    document.MM_Time[0] = new Array(1);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 15);
+    document.MM_Time[0][0].values = new Array(2);
+    document.MM_Time[0][0].values[0] = new Array(-167,-155,-143,-132,-120,-108,-96,-85,-73,-61,-49,-37,-26,-14,-2);
+    document.MM_Time[0][0].values[0].prop = "left";
+    document.MM_Time[0][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[0].lastFrame = 15;
+    document.MM_Time[1] = new Array(1);
+    document.MM_Time["Timeline2"] = document.MM_Time[1];
+    document.MM_Time[1].MM_Name = "Timeline2";
+    document.MM_Time[1].fps = 15;
+    document.MM_Time[1][0] = new String("sprite");
+    document.MM_Time[1][0].slot = 1;
+    if (ns)
+        document.MM_Time[1][0].obj = document["Layer1"];
+    else
+        document.MM_Time[1][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[1][0].keyFrames = new Array(1, 15);
+    document.MM_Time[1][0].values = new Array(2);
+    document.MM_Time[1][0].values[0] = new Array(-2,-14,-26,-37,-49,-61,-73,-85,-96,-108,-120,-132,-143,-155,-167);
+    document.MM_Time[1][0].values[0].prop = "left";
+    document.MM_Time[1][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[1][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[1][0].values[0].prop2 = "style";
+        document.MM_Time[1][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[1].lastFrame = 15;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#000000" text="#000000" link="#0000FF"
+vlink="#800080">
+<div align="center">
+  <div id="Layer1" style="position:absolute; left:-2px; top:11px; width:210px; height:260px; z-index:1"> 
+    <table width="99%" border="1" height="276">
+      <tr> 
+        <td colspan="2" height="2" bgcolor="#3399CC"> 
+          <div align="center"><font size="2">人物介紹選單</font></div>
+        </td>
+        <td width="17%" height="2"> 
+          <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline1');MM_timelineGoto('Timeline1','1')"><img src="tr.gif" width="34" height="34" border="0" alt="開啟"></a></div>
+        </td>
+      </tr>
+      <tr> 
+        <td colspan="2" height="146" bgcolor="#FFCC99"> 
+          <p align="center"><font size="2"><a href="g0079.htm"><font color="#333399">機動戰士鋼彈</font></a></font></p>
+          <p align="center"><font color="#990066" size="2"><a href="p0083.htm"><font color="#333399">機動戰士鋼彈0083</font></a></font></p>
+          <p align="center"><font color="#990066" size="2"><a href="p0083.htm"><font color="#333399">機動戰士Z鋼彈</font></a></font></p>
+          <p align="center"><font color="#990066" size="2"><a href="photo/zzp.htm"><font color="#333399">機動戰士鋼彈ZZ</font></a></font></p>
+          <p align="center"><font color="#FFCC99" size="2"><a href="p_0093.htm"><font color="#333399">機動戰士鋼彈~逆襲的夏亞</font></a></font></p>
+          <p align="center"><font color="#FFCC99" size="2"><a href="p_08ms.htm"><font color="#333399">機動戰士鋼彈第08MS小隊</font></a></font></p>
+        </td>
+        <td width="17%" height="146">&nbsp;</td>
+      </tr>
+      <tr> 
+        <td colspan="2" height="41">&nbsp;</td>
+        <td width="17%" height="41"> 
+          <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline2');MM_timelineGoto('Timeline2','1')"><img src="tl.gif" width="34" height="34" border="0" alt="關閉"></a></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <table border="0" cellpadding="2" cellspacing="4" width="100%" height="100%">
+
+<center>
+    <tr>
+        <td valign="top" width="296" height="155"><p
+        align="center"><font color="#D3FDC1" size="2"><img
+        src="ka-.jpg" width="183" height="127"><br>
+          <font LANG="ZH-TW">卡繆．比丹<br>
+            (ロтみщ．жФ⑦)</font></font></p>
+        </td>
+        <td valign="top" width="297" rowspan="2" height="184"><font
+        size="2"><br>
+          </font>
+          <p><font color="#E6E6E6" size="2">鋼彈的駕駛員，是一位不幸的人，在原作中因名字過為女性化與迪坦斯結怨，在一連串不幸的事件中逐漸成長．．因鳳和其他的戰友的死，而使其新人類能力覺醒．．．後因無法承受超高的力量，而在與西洛克交戰後，精神崩潰<span style="LETTER-SPACING: 0px">。</span></font></p>  
+        </td>   
+    </tr>   
+    <tr>  
+        <td valign="top" width="296" height="21">  
+          <hr>  
+        </td>  
+    </tr>  
+    </center><tr><td valign="top" width="296" rowspan="2" height="197">   
+        <center>   
+</center><p   
+        align="left"><font size="2">　</font></p> 
+        <p  
+        align="left">　</p>
+        <p  
+        align="left">&nbsp;</p>
+        <p  
+        align="left"><font color="#E6E6E6" 
+        size="2">T H E．0 的駕駛員，從木星回來的新人類，具有冷靜及無情的判斷力，身份不明的男人最後被卡繆用Ｚ鋼彈撞死<font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font> 
+          </font></p>      
+        </td>      
+    <center>      
+      
+        <td valign="top" width="297" height="168">      
+          <p align="center"><font size="2"><font color="#E6E6E6"><br>    
+          </font><font color="#D3FDC1"><img src="si.jpg"    
+        width="179" height="127"><br>    
+          <font LANG="ZH-TW">帕普提馬斯=西洛克<br>    
+        (екЪсЗ．Ё①Чヵ)</font></font></font></p>    
+</td>     
+    </center></tr>     
+    <tr>    
+        <td valign="top" width="297" height="21">    
+          <hr>    
+      </td>     
+    </tr>    
+    <tr>     
+        <td valign="top" width="296" height="157"><p     
+        align="center"><font color="#D3FDC1" size="2"><img src="fauri-.jpg"    
+        width="182" height="129"><br>    
+          <font LANG="ZH-TW">花園麗<br>    
+        (иャ．щユэユ)</font></font></p>    
+        </td>    
+        <td valign="top" width="297" rowspan="2" height="186"><font    
+        size="2"><br>    
+ </font>    
+          <p><font size="2">　</font></p>
+          <p><font color="#E6E6E6"
+        size="2">
+        卡繆的青梅竹馬，梅塔斯的駕駛員&nbsp; </font></p>  
+        </td>   
+    </tr>   
+    <tr>  
+        <td valign="top" width="296" height="21">  
+          <hr>  
+        </td>  
+    </tr>  
+  
+    <tr>   
+        <td valign="top" width="296" height="220" rowspan="2"><p   
+        align="left"></p>  
+          <p   
+        align="left">　</p>  
+          <p   
+        align="left">　</p>  
+          <p   
+        align="left"><font color="#E6E6E6"  
+        size="2">  
+        丘貝雷的駕駛員操控ＭＳ的新人類，美奈巴．查比的監護人，實際上掌握阿格西斯<font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font></font></p>  
+        </td>  
+    <center>  
+  
+        <td valign="top" width="297" height="191">  
+          <ol>  
+            <li>  
+              <p align="center"><font size="2"><font color="#E6E6E6"><br>
+              </font><font size="2" color="#D3FDC1"><br>
+              <img src="ha.jpg"
+        width="188" height="131" align="left">
+              </font></font></p>
+            </li>
+          </ol>
+          <p align="center">　</p>
+          <p align="center">　</p>
+          <p>　</p>
+          <p align="center"><font LANG="ZH-TW" size="2" color="#D3FDC1">哈曼．卡恩<br>
+        (гсみ⑦．ロみ⑦)</font></p>
+        </td> 
+    </center></tr> 
+        <tr>
+        <td valign="top" width="297" height="21"> 
+          <hr>
+        </td> 
+        </tr>
+    <tr> 
+        <td valign="top" width="296" height="203"><p align="center"><font
+        size="2" color="#D3FDC1"><img src="ema.jpg" width="171" height="175"><br>
+          <font LANG="ZH-TW">艾瑪．希恩<br>
+        (リс．Ёみ⑦)</font>
+        </font></p>
+        </td>
+        <td valign="top" width="297" height="222" rowspan="2"><font
+        size="2" color="#E6E6E6"><br>
+ </font>
+          <p>　</p>
+          <p><font
+        size="2" color="#E6E6E6">
+        鋼彈ＭｋII的駕駛員，原是屬於迪坦斯的陣營但對其反感而加入幽谷，最後因身受重傷而死，連遺體都被殖民地雷射砲轟個屍骨無存，真是可    
+        憐 <font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font> </font></p>    
+        </td>      
+    </tr>      
+    
+<tr>    
+        <td valign="top" width="296" height="11">    
+          <hr>    
+        </td>    
+</tr>    
+    <tr>      
+        <td valign="top" width="296" rowspan="2" height="248">     
+          <p align="left">　</p>     
+          <p align="left">　</p>     
+          <p align="left">　</p>     
+          <p align="left"><font    
+        size="2" color="#E6E6E6">    
+        是日本ＮＴ研究所的的第４號強化人所以名為（Ｆｏｕｒ），幼年時即被奪去了記憶，成為感應鋼彈的駕駛員，和卡繆的相遇改變了她許多<font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font> </font></p>    
+        </td>    
+    <center>    
+    
+        <td valign="top" width="297" height="219">  
+          <p align="center"><font size="2"><font color="#D3FDC1"><img src="four.jpg" width="173" height="175"><br>   
+          <font LANG="ZH-TW">鳳．村雨<br>   
+        (иル⑦．уьДф)</font>   
+        </font><font color="#E6E6E6"><br>  
+ </font></font></p>  
+        </td>    
+    </center></tr>    
+        <tr>  
+        <td valign="top" width="297" height="21">  
+          <hr>  
+          </td>    
+        </tr>  
+    <tr>    
+        <td valign="top" width="296" height="185"><p align="center"><font   
+        size="2" color="#D3FDC1"><img src="hakan.jpg" width="201" height="157"><br>   
+          <font LANG="ZH-TW">漢肯<br>   
+        (л⑦ン⑦．мЧンЮみ)</font>   
+        </font></p>   
+        </td>   
+        <td valign="top" width="297" height="214" rowspan="2"><font  
+        size="2" color="#E6E6E6"><br>  
+ </font>  
+          <p>　</p>
+          <p>　</p>
+          <p><font
+        size="2" color="#E6E6E6">原阿卡馬艦長，布萊特加入後成為拉 迪修號的艦長，為守護重傷的鋼彈ＭｋII&nbsp;   
+          而用拉迪修當擋箭牌，當然最後被擊落了</font><font size="2" color="#E6E6E6">．．．</font></p>  
+        </td>    
+    </tr>    
+        <tr>  
+        <td valign="top" width="296" height="21">  
+          <hr>  
+        </td>   
+        </tr>  
+    
+    <tr>    
+        <td valign="top" width="296" height="235" rowspan="2"><p align="left">　</p>   
+          <p align="left">　</p>   
+          <p align="left">　</p>   
+          <p align="left"><font  
+        size="2" color="#E6E6E6">  
+        迪坦斯的指揮官兼地球聯邦軍大佐，有為達成目的不擇手段的狂妄野心．．．</font></p>    
+        </td>    
+    <center>    
+    
+        <td valign="top" width="297" height="206">   
+          <p align="center"><font    
+        size="2" color="#D3FDC1"><img src="basuko.jpg" width="180"    
+        height="178"><br>    
+          <font LANG="ZH-TW">巴斯克．歐姆<br>    
+        (дЗヱ．レу)</font>    
+        </font></p>   
+        </td>     
+    </center></tr>     
+        <tr>   
+        <td valign="top" width="297" height="21">   
+          <hr>   
+          </td>     
+        </tr>   
+    <tr>     
+        <td valign="top" width="296" height="156"><p align="center"><font    
+        size="2" color="#D3FDC1"><img src="b_z.jpg" width="195" height="128"><br>    
+          <font LANG="ZH-TW">布萊特．諾亞<br>    
+        (йьみЬ．вヤ)</font>    
+        </font></p>    
+        </td>    
+    
+        <td valign="top" width="297" height="185" rowspan="2">   
+          <p align="left"><font   
+        size="2" color="#E6E6E6"><br>   
+ </font></p>   
+          <p align="left">　</p>
+          <p align="left"><font
+        size="2" color="#E6E6E6">
+        原白色基地的艦長，地球聯邦軍大佐，因對地球聯邦軍的腐敗和卑劣而參加幽谷，為阿卡馬的艦長<font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font> </font></p>  
+        </td>    
+    </tr>    
+    <center>   
+   
+        <tr>  
+        <td valign="top" width="296" height="21">  
+          <hr>  
+        </td>   
+        </tr>  
+</center>    
+    <tr>    
+        <td valign="top" width="296" height="244" rowspan="2"><p align="left"></p>   
+          <p align="left">　</p>   
+          <p align="left">　</p>   
+          <p align="left"><font  
+        size="2" color="#E6E6E6">  
+        迪坦斯的中尉，能力不錯，和卡繆有嫌隙最後中了卡繆兩槍撞上了正在爆炸的拉迪修號跟著爆炸了．．</font></p>  
+        </td>  
+    <center>  
+  
+        <td valign="top" width="297" height="215"> 
+          <p align="center"><font size="2"><font color="#D3FDC1"><img src="jeri.jpg" width="179" height="171"><br>  
+          <font LANG="ZH-TW">傑利特．梅薩<br>  
+        (ЖラэЬ．фД)</font>  
+        </font><font color="#E6E6E6"><br> 
+ </font></font></p> 
+        </td>   
+    </center></tr>   
+        <tr> 
+        <td valign="top" width="297" height="21"> 
+          <hr> 
+          </td>   
+        </tr> 
+    <tr>   
+        <td valign="top" width="296" height="173"><p align="center"><font  
+        size="2" color="#D3FDC1"><img src="rosami.jpg" width="185" height="145"><br>  
+          <font LANG="ZH-TW">羅莎米亞．巴達姆<br>  
+        (①Дтч．дФу)</font>  
+        </font></p>  
+        </td>  
+        <td valign="top" width="297" height="202" rowspan="2"><font 
+        size="2" color="#E6E6E6"><br> 
+ </font> 
+          <p>　</p>
+          <p><font
+        size="2" color="#E6E6E6">
+        北美ＮＴ研究所的強化人，被植入是卡繆的妹妹的記憶，駕駛感應鋼彈ＭｋII&nbsp;   
+          和卡繆接觸後記憶受到混亂．．</font></p>    
+        </td>      
+    </tr>      
+        <tr>    
+        <td valign="top" width="296" height="21">    
+          <hr>    
+        </td>     
+        </tr>    
+      
+    <tr>      
+        <td valign="top" width="296" height="244" rowspan="2"><p align="left">　</p>    
+          <p align="left">　</p>    
+          <p align="left">　</p>    
+          <p align="left"><font   
+        size="2" color="#E6E6E6">就是前作的夏亞，為幽谷的中心人物，在普雷斯克準將死後，被委任全權指揮幽谷，對卡繆的評價很高，和哈曼有因緣關係，戰爭後又失蹤了<font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font> </font></p>    
+        </td>    
+    <center>    
+    
+        <td valign="top" width="297" height="215">   
+          <p align="center"><font size="2"><font color="#D3FDC1"><img src="quwa.jpg" width="177" height="174">    
+        <br>    
+          <font LANG="ZH-TW">    
+        克瓦特羅．巴吉那<br>    
+        (ヱ③Ь①．дЖみЮ)</font>    
+        </font><font color="#E6E6E6"><br>   
+ </font></font></p>   
+        </td>     
+    </center></tr>     
+        <tr>   
+        <td valign="top" width="297" height="21">   
+          <hr>   
+          </td>     
+        </tr>   
+    <tr>     
+        <td width="296" height="171"><p     
+        align="center"><font size="2" color="#D3FDC1"><img    
+        src="kai-z.jpg" width="194" height="143"><br>    
+          <font LANG="ZH-TW">凱．西迪<br>    
+        (ロユ．ЁЫ⑦)</font>    
+        </font></p>    
+        </td>    
+        <td valign="top" width="297" height="200" rowspan="2"><font size="2" color="#E6E6E6"><br>   
+          </font>   
+          <p>　</p>
+          <p><font size="2" color="#E6E6E6">
+        原白色基地的成員，終戰後成為自由記者，為搜集迪坦茲的情報和同目的的雷柯亞一同潛入賈布羅，但卻被發現， 
+          由卡繆救出<font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font> </font></p>  
+        </td>    
+    </tr>    
+        <tr>  
+        <td width="296" height="21">  
+          <hr>  
+        </td>   
+        </tr>  
+    
+    <tr>    
+        <td width="296" height="210" rowspan="2"><p    
+        align="left"><font size="2" color="#E6E6E6">   
+        原幽谷成員，但被西洛克希引，脫離幽谷，加入了迪坦滋<font color="#dbdbdb"><span style="LETTER-SPACING: 0px"><font color="#e6e6e6" face="新細明體" size="2">。</font></span></font> </font></p>    
+        </td>    
+    <center>   
+   
+        <td valign="top" width="297" height="181">  
+          <p align="center"><font size="2"><font color="#D3FDC1"><img   
+        src="regoya.jpg" width="181" height="137"><br>   
+        雷柯亞．倫得<br>   
+        (яヵヤ．①⑦Э)</font><font color="#E6E6E6"><br>  
+ </font></font></p> 
+        </td>   
+    </center></tr>   
+        <tr> 
+        <td valign="top" width="297" height="21"> 
+          <hr> 
+          </td>   
+        </tr> 
+</table>   
+</div>   
+</body>   
+</html>   

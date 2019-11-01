@@ -1,0 +1,310 @@
+<html>
+
+<head>
+
+<title>08th小隊~人物介紹</title>
+
+<script language="JavaScript">
+<!--
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_timelineGoto(tmLnName, fNew, numGotos) { //v2.0
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,lastKeyFr,propNum,theObj;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (numGotos != null)
+    if (tmLn.gotoCount == null) tmLn.gotoCount = 1;
+    else if (tmLn.gotoCount++ >= numGotos) {tmLn.gotoCount=0; return}
+  jmpFwd = (fNew > tmLn.curFrame);
+  for (i = 0; i < tmLn.length; i++) {
+    sprite = (jmpFwd)? tmLn[i] : tmLn[(tmLn.length-1)-i]; //count bkwds if jumping back
+    if (sprite.charAt(0) == "s") {
+      numKeyFr = sprite.keyFrames.length;
+      firstKeyFr = sprite.keyFrames[0];
+      lastKeyFr = sprite.keyFrames[numKeyFr - 1];
+      if ((jmpFwd && fNew<firstKeyFr) || (!jmpFwd && lastKeyFr<fNew)) continue; //skip if untouchd
+      for (keyFrm=1; keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]; keyFrm++);
+      for (j=0; j<sprite.values.length; j++) {
+        props = sprite.values[j];
+        if (numKeyFr == props.length) propNum = keyFrm-1 //keyframes only
+        else propNum = Math.min(Math.max(0,fNew-firstKeyFr),props.length-1); //or keep in legal range
+        if (sprite.obj != null) {
+          if (props.prop2 == null) sprite.obj[props.prop] = props[propNum];
+          else        sprite.obj[props.prop2][props.prop] = props[propNum];
+      } }
+    } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+  }
+  tmLn.curFrame = fNew;
+  if (tmLn.ID == 0) eval('MM_timelinePlay(tmLnName)');
+}
+
+function MM_initTimelines() {
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    document.MM_Time = new Array(2);
+    document.MM_Time[0] = new Array(1);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 15);
+    document.MM_Time[0][0].values = new Array(2);
+    document.MM_Time[0][0].values[0] = new Array(-162,-150,-138,-127,-115,-103,-91,-80,-68,-56,-44,-32,-21,-9,3);
+    document.MM_Time[0][0].values[0].prop = "left";
+    document.MM_Time[0][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[0].lastFrame = 15;
+    document.MM_Time[1] = new Array(1);
+    document.MM_Time["Timeline2"] = document.MM_Time[1];
+    document.MM_Time[1].MM_Name = "Timeline2";
+    document.MM_Time[1].fps = 15;
+    document.MM_Time[1][0] = new String("sprite");
+    document.MM_Time[1][0].slot = 1;
+    if (ns)
+        document.MM_Time[1][0].obj = document["Layer1"];
+    else
+        document.MM_Time[1][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[1][0].keyFrames = new Array(1, 15);
+    document.MM_Time[1][0].values = new Array(2);
+    document.MM_Time[1][0].values[0] = new Array(-2,-13,-25,-36,-48,-59,-71,-82,-93,-105,-116,-128,-139,-151,-162);
+    document.MM_Time[1][0].values[0].prop = "left";
+    document.MM_Time[1][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[1][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[1][0].values[0].prop2 = "style";
+        document.MM_Time[1][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[1].lastFrame = 15;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF">
+
+<table border="0" width="100%" height="2176">     
+  <tr>     
+    <td width="50%" height="175">
+      <div id="Layer1" style="position:absolute; left:-2px; top:11px; width:210px; height:260px; z-index:1"> 
+        <table width="99%" border="1" height="276">
+          <tr> 
+            <td colspan="2" height="2" bgcolor="#3399CC"> 
+              <div align="center"><font size="2">人物介紹選單</font></div>
+            </td>
+            <td width="17%" height="2"> 
+              <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline1');MM_timelineGoto('Timeline1','1')"><img src="tr.gif" width="34" height="34" border="0" alt="開啟"></a></div>
+            </td>
+          </tr>
+          <tr> 
+            <td colspan="2" height="146" bgcolor="#FFCC99"> 
+              <p align="center"><font size="2"><a href="g0079.htm"><font color="#333399">機動戰士鋼彈</font></a></font></p>
+              <p align="center"><font color="#990066" size="2"><a href="p0083.htm"><font color="#333399">機動戰士鋼彈0083</font></a></font></p>
+              <p align="center"><font color="#990066" size="2"><a href="p0083.htm"><font color="#333399">機動戰士Z鋼彈</font></a></font></p>
+              <p align="center"><font color="#990066" size="2"><a href="photo/zzp.htm"><font color="#333399">機動戰士鋼彈ZZ</font></a></font></p>
+              <p align="center"><font color="#FFCC99" size="2"><a href="p_0093.htm"><font color="#333399">機動戰士鋼彈~逆襲的夏亞</font></a></font></p>
+              <p align="center"><font color="#FFCC99" size="2"><a href="p_08ms.htm"><font color="#333399">機動戰士鋼彈第08MS小隊</font></a></font></p>
+            </td>
+            <td width="17%" height="146">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td colspan="2" height="41">&nbsp;</td>
+            <td width="17%" height="41"> 
+              <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline2');MM_timelineGoto('Timeline2','1')"><img src="tl.gif" width="34" height="34" border="0" alt="關閉"></a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p align="center"><font color="#EEFFEE" size="2"><img border="0" src="silo.jpg" width="203" height="140"><br>
+        </font><font color="#FFFFD7" size="2"> 天田四郎（少尉）<br>
+        (Ё①み．ヤсФ)</font>
+    </td>    
+    <td width="50%" rowspan="2" height="186" valign="middle">    
+      <p align="left"><font size="2" color="#FFFFFF">在ｓｉｄｅ２畢業後代替原本受傷的隊長擔任08小隊的隊長，在前往的途中就以一架BALL擊退一架薩克，並與吉翁駕駛--艾娜邂逅。是一位充滿正義感與同情心的人，不願輕易殺害敵方駕駛員</font><font size="2" color="#FFFFFF">，對自己的理想也是不輕易改變。口頭禪是”大家都要活著回來..不要死了”</font><font size="2" color="#FFFFFF">。</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="7">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" rowspan="2" height="191" valign="middle"><font size="2">０８小隊的ＭＳ駕駛員</font><font size="2" color="#FFFFFF">，有死神之稱。在宇宙被四郎救了一命後對他是非常尊敬。</font></td>    
+    <td width="50%" height="169">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="sandasu.jpg" width="190" height="127"><br> 
+      泰瑞．山達斯Jr.（軍曹）<br>
+      (Ъэみ．ДФみЗJr.)</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="169">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="garen.jpg" width="177" height="127"><br> 
+      卡蓮．喬修亞（曹長）<br>
+      (ロя⑦．ЖъЁшヤ)</font></td>    
+    <td width="50%" rowspan="2" height="191" valign="middle">    
+      <p align="left"><font size="2">０８小隊的ＭＳ駕駛員</font><font size="2" color="#FFFFFF">，和艾雷多亞一樣是在四郎未就任之前的小隊成員。原是地球出生的醫學生，是一個能力輔佐隊長的副官。剛開使不信任天田的能力。</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" rowspan="2" height="185" valign="middle">    
+      <p align="left"><font size="2">擔任０８小隊的одみЬьЧヱ和ＭＳ的預備駕駛員</font><font size="2" color="#FFFFFF">。在空暇時間會寫信給他的戀人--BB</font><font size="2" color="#FFFFFF">。此圖中的他就正在寫信...個性稍嫌膽小</font><font size="2" color="#FFFFFF">。</font></td>    
+    <td width="50%" height="163">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="migeru.jpg" width="184" height="129"><br> 
+      米凱爾．尼洛利奇（伍長）<br>
+      (т⑩ю．ЯвэЧХ)</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="168">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="iretoa.jpg" width="200" height="133"><br>
+      艾雷多亞．馬西斯<br>
+      (リяЭヤ．сЁЗ)</font></td>    
+    <td width="50%" rowspan="2" height="191">    
+      <p align="left"><font size="2">０８小隊的通信士</font><font size="2" color="#FFFFFF">，和米凱爾一同擔任</font><font size="2">одみЬьЧヱ的駕駛</font><font size="2" color="#FFFFFF">，也利用</font><font size="2">одみЬьЧヱ的聲納正確的找出敵我的位置</font><font size="2" color="#FFFFFF">。似乎是個輕浮的人</font><font size="2" color="#FFFFFF">，喜歡聽音樂和作曲</font><font size="2" color="#FFFFFF">。</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="19">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" rowspan="2" height="210">    
+      <p align="left"><font size="2">ヵЖс大隊的補給兵</font><font size="2" color="#FFFFFF">，喜歡喝威士忌，也很愛賭博</font><font size="2" color="#FFFFFF">。</font></td>    
+    <td width="50%" height="188">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="jidan.jpg" width="182" height="127"><br> 
+      <br> 
+      吉丹．尼卡特（大尉）<br>
+      (ЖФ⑦．ЯЧロみЭ)<br> 
+      </font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="177">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="kiki.jpg" width="192" height="139"><br>
+      琪琪．羅吉塔<br>
+      (ワワ．①ЖみУ)</font></td>    
+    <td width="50%" rowspan="2" height="199">    
+      <p align="left"><font size="2">山賊游擊隊頭目的女兒</font><font size="2" color="#FFFFFF">，</font><font size="2" color="#FFFFFF">一次四郎在追擊薩克的途中預見了正在河中戲水的她</font><font size="2" color="#FFFFFF">，此後和０８小隊常常一起行動。是一個任性率真的少女</font><font size="2" color="#FFFFFF">。</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" rowspan="2" height="190">    
+      <p align="left"><font size="2">聯邦調查局的調查員</font><font size="2" color="#FFFFFF">，被命令調查有間諜嫌疑四郎，認為吉翁的人沒一個是好人，沒一個可信賴。在四郎的黑咖啡中添加&quot;自白劑&quot;，曾用槍指著四郎，叫他對吉翁趕盡殺絕</font><font size="2" color="#FFFFFF">。</font><font size="2" color="#EEFFEE">（劇場版中登場）</font></td>    
+    <td width="50%" height="168">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="miller.jpg" width="194" height="125"><br> 
+      愛莉斯．米拉<br>
+      (リэЗ．ть)</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="194">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="aina.jpg" width="211" height="148"><br> 
+      艾娜．撒哈琳<br>
+        (ヤユЮ．Дгэ⑦)</font>
+    </td>    
+    <td width="50%" rowspan="2" height="216">    
+      <p align="left"><font color="#FFFFFF" size="2">公國軍的試驗駕員</font><font size="2" color="#FFFFFF">，是現在沒落的ｓｉｄ３名家－撒哈琳家的女兒，在復興的期間和兄長待在軍中。在宇宙試驗高機動薩克的時候和四郎見面，被他善良的個性打動，最後駕駛試做型ＭＡ－ヤкДьЗ和０８小隊戰鬥並和四郎在雪山中獨處，此舉也使得四郎聯邦高曾懷疑</font><font size="2" color="#FFFFFF">。</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" rowspan="2" height="179">    
+      <p align="left"><font size="2">於奧迪薩作戰中失敗的敗兵</font><font size="2" color="#FFFFFF">，是薩克小隊的小隊長，在向奇奇的村子要食物時，因為部下的隨便，受到游擊隊的攻擊，雖然四郎極力阻止，但還是被火箭統射向駕駛艙而死</font><font size="2" color="#FFFFFF">。</font></td>    
+    <td width="50%" height="157">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="_top.jpg" width="174" height="118"><br> 
+      托普<br>
+      (ЬЧк)</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="172">    
+      <p align="center"><font color="#FFFFD7" size="2"><img border="0" src="kiniasu.jpg" width="178" height="123"><br> 
+      吉尼亞斯．撒哈琳<br>
+      (ヰЯヤЗ．Дгэ⑦)</font></td>    
+    <td width="50%" rowspan="2" height="194">    
+      <p align="left"><font size="2">艾娜的哥哥也是公國軍的秘密基地指令</font><font size="2" color="#FFFFFF">。擔任艾普薩拉斯（ヤкДьЗ）開發計畫的總負責人，因為身體有病而沒有多久的時間可活大型ＭＡ</font><font size="2" color="#FFFFFF">艾普薩拉斯完成後</font><font size="2" color="#FFFFFF">，這樣功蹟，使得復興撒哈琳家的夢想得以實現</font><font size="2" color="#FFFFFF">。</font></td>    
+  </tr>    
+  <tr>    
+    <td width="50%" height="18">    
+      <hr>    
+    </td>    
+  </tr>    
+</table>    
+    
+</body>    
+    
+</html>    

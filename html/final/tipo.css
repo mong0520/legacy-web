@@ -1,0 +1,371 @@
+table.service, table.patent, table.trademark, table.cooperation, table.copyright, table.secret, table.dataserve,table.search,table.guide
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+
+.titleDesc
+{
+	font-size: 12px;
+	line-height: 18px;
+	letter-spacing: 6px;
+}
+
+.engTitleDesc
+{
+	font-size: 12px;
+	line-height: 18px;
+	letter-spacing: 0px;
+}
+
+/*
+a {text-decoration: none; color: bule; }
+a:hover {text-decoration: underline; color: blue; }
+a:visited {color: blue; }
+*/
+
+.* { font-family: Arial; font-size: 15px; line-height: 25px; }
+
+.a { text-decoration: none; }
+.a:hover { text-decoration: underline; color: #990000; }
+.a:visited {color: #4F4F4F; }
+
+.title01, .title01 a, .title01 a:hover, .title11
+{
+
+	font-size: 16px ;
+	color: #660000;
+	font-weight:bold;
+	/*background: #FFFFE8;*/
+	line-height: 28px;
+}
+
+.title01   {color: #660000;}				/*²`©@°Ø²ÊÅé¶À©³¦â*/
+.title01 a {text-decoration: none;}
+.title01 a:hover{text-decoration: underline; color: #990000;}
+.title11   {color: #660000; text-align: center;} 	/*²`©@°Ø²ÊÅé¶À©³¦â*/
+
+.title02   {color: #993333; }				/*©@°Ø*/
+.title02 a { text-decoration: none; color: #993333;}
+.title02 a:hover {text-decoration: underline; color: #990000;}
+
+.title03   {color: #996633;}				/*²H©@°Ø*/
+.title03 a {text-decoration: none; color: #996633; }
+.title03 a:hover { text-decoration: underline; 	color: #990000;}
+
+.title04 { font-size: 16px ; color: #660000; font-weight:bold; }	/*²`©@°Ø²ÊÅé*/
+.title04 a {text-decoration: none;}
+.title04 a:hover{text-decoration: underline; color: #990000;}
+.title14 {font-size: 16px ; color: #660000; font-weight:bold; text-align:center; }	/*²`©@°Ø²ÊÅé*/
+
+.title05 {color: #360087; background-color= #cedce3; text-align: center; }		/*²`ÂÅ¦rÂÅ©³*/
+.title05 a {text-decoration: none;}
+.title05 a:hover{text-decoration: underline; color: #990000;}
+
+.title06 { color: blue;}		/*²HÂÅ¦r*/
+.title06 a {text-decoration: none;}
+.title06 a:hover{text-decoration: underline; color: #990000;}
+
+.title07 { color: #990000; }		/*¬õ¦r*/
+.title07 a {text-decoration: none;}
+.title07 a:hover{text-decoration: underline; color: #990000;}
+
+.title08 { background: #F0EFDB; }	/* ¶Â¦r²H©@°Ø©³ */
+
+
+.Content01 { color: black;font-family: Arial; font-size: 15px; line-height: 25px; }			/*¶Â*/
+.Content01 a {text-decoration: none; color:#0C4381;}
+.Content01 a:hover{text-decoration: underline; color: #990000;}
+.content11 { color: black;font-family: Arial; font-size: 15px; line-height: 25px;text-align:left; }	/*¶Â¸m¥ª*/
+.content21 {color: black;font-family: Arial; font-size: 15px; line-height: 25px; text-align:right; }	/*¶Â¸m¥k*/
+
+.content02 { color: black;font-family: Arial; font-size: 15px; line-height: 25px; }	/*¶Â¶À©³*/	/*background: #FFFFE8*/;
+.content12 { text-align:center; }		/*¶Â¶À©³¸m¤¤*/		/*background: #FFFFE8;*/
+.content22 {text-align:right; }			/*¶Â¶À©³¸m¥k*/		/*background: #FFFFE8;*/
+
+.Content03 { color: #343434; background: #F2F2F2; }			/*¶Â¦Ç©³*/
+.Content13 { font-family: Arial; font-size: 15px; line-height: 25px; color: #343434; bgcolor:"#F2F2F2"; text-align:center;}	/*¶Â¦Ç¸m¤¤*/
+
+.content04 { font-family: Arial; font-size: 15px; line-height: 25px; color: #060465; }		/*ÂÅ*/
+.content04 a {text-decoration: none; color:#0C4381;}
+.content04 a:hover{text-decoration: underline; color: #ffffff;}
+.content14 { font-family: Arial; font-size: 15px; line-height: 25px; color: #8d9ba0; text-align:center; }		/*ÂÅ¸m¤¤*/
+
+
+
+.content05 { font-family: Arial; font-size: 15px; line-height: 25px; color: #cedce3; }			/*²HÂÅ*/
+.content15 { color: blue; text-align:center; }				/*²HÂÅ¸m¤¤*/
+
+.content06 { color: #990000; }		/*¬õ*/
+.content16 { color: #990000; text-align:center; }			/*¬õ¸m¤¤*/
+
+.content07 { color: pink; }			/*²H¬õ*/
+.content17 { color: pink; text-align:center; }		/*²H¬õ¸m¤¤*/
+
+.content08 { font-size: 13px; color: #27461F; 	font-weight:normal; } 			/*ºñ¦r*/
+.content08 a {text-decoration: none;}
+.content08 a:hover{text-decoration: underline; color: #990000;}
+.content18 { font-size: 13px; color: #27461F; 	font-weight:normal; text-align:center; }		/*ºñ¦r*/
+.content28 { font-size: 13px; color: #27461F;	font-weight:normal; text-align:right;  } 		/*ºñ¦r*/
+
+.hr01 {	 height: 1px; width: 95%; text-align: left; border-style: outset}
+.hr02 {	color: #A6A6A6; height: 1px; width: 95%; text-align: left; border-style: dotted}
+
+.edit
+{
+	line-height: 14px;
+	font-size: 11px;
+	font-family: Arial;
+	border: 1px solid black;
+	width: 100px;
+	height: 18px;
+}
+
+.eng_edit
+{
+	line-height: 14px;
+	font-size: 11px;
+	font-family: Arial;
+	border: 1px solid black;
+	width: 82px;
+	height: 18px;
+}
+
+.btn
+{
+	line-height: 15px;
+	background: silver;
+	border-style: outset;
+	border-color: white;
+	border-width: 2px;
+	font-size:11px;
+	height: 20px;
+	width: 50px;
+}
+
+
+.footer a
+{
+	font-size: 13px;
+	color: #1163BD;;
+	text-decoration: none;
+}
+
+.footer a:hover
+{
+	color: #CC3300;
+	text-decoration: underline;
+}
+
+table.service td div, table.patent td div, table.trademark td div, table.cooperation td div, table.copyright td div, table.secret td div, table.dataserve td div, table.eng td div
+{
+	padding-top: 6px;
+}
+
+table.service td, table.patent td, table.trademark td, table.cooperation td, table.copyright td, table.secret td, table.dataserve td, table.eng td
+{
+	vertical-align: top;
+
+}
+
+table.sel
+{
+	border-color: #CEDCE3;
+	border-colorlight: #8D9BA0;
+	border-collapse: collapse;
+	width: 95%;
+}
+
+table.sel td
+{
+	padding: 0px;
+}
+
+.mainLegend
+{
+  color:#000099;
+  font-size: 12px;
+  letter-spacing:2pt;
+  font-weight: bold;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color="#777777", Direction=135, Strength=1);
+}
+
+.subMenuItem
+{
+	font-size: 12px;
+	background: #DDDDDD;
+	cursor: hand;
+	padding: 0px 5px 0px 5px;
+	border-width: 0px 1px 1px 1px;
+	border-style: solid;
+	border-color: #808080;
+}
+
+.subMenuItem a
+{
+	font-size: 12px;
+	color: #998844;
+	text-decoration: none;
+}
+
+.subMenuItem a:hover
+{
+	font-size: 12px;
+	color: red;
+}
+
+.searchBtn
+{
+	line-height: 15px;
+	border-style: outset;
+	border-color: black;
+	border-width: 1px;
+	font-size:11px;
+	height: 20px;
+	width: 50px;
+}
+
+.searchEdit
+{
+	line-height: 14px;
+	font-size: 11px;
+	font-family: Arial;
+	border: 1px solid black;
+	width: 300px;
+	height: 18px;
+}
+
+.flatTable
+{
+	border-width: 1px;
+	border-style: outset;
+	border-color: #7A9FAD;
+}
+
+.trHead
+{
+	background: #7A9FAD;
+	font-size: 12pt;
+}
+
+.trSubHead
+{
+	background: #9FB8BF;
+	font-size: 12pt;
+}
+
+.tdHead
+{
+	background: #D9D9D9;
+	font-size: 12pt;
+}
+
+.tr1
+{
+	background: #D9D9D9;
+	font-size: 12px;
+	text-align: center;
+}
+
+.tr2
+{
+	background: #FFFFFF;
+	font-size: 12px;
+	text-align: center;
+}
+
+.btn1
+{
+  font:12px;
+  border:1px solid black;
+  padding:2px 0px 0px 1px;
+}
+
+.input1
+{
+  font:12px;
+  border:1px solid black;
+}
+
+table.News .tr1
+{
+	background: #D9D9D9;
+	font-size: 12pt;
+	text-align: center;
+}
+
+table.News .tr2
+{
+	background: #FFFFFF;
+	font-size: 12pt;
+	text-align: center;
+}
+
+table.News .mOver
+{
+	color: white;
+	background-color: #9FB8BF;
+	cursor: hand;
+}
+
+table.News td
+{
+	/*text-align: center;*/
+}
+
+table.depBanner td a
+{
+	 text-decoration: underline;
+	 color: #7A9FAD;
+	 font-size: 12px;
+}
+
+table.depBanner td
+{
+	background-color: #FFFFFF;
+	font-size: 12px;
+}
+
+table.depBanner .mOver
+{
+	color: #FFFFFF;
+	background-color: #7A9FAD;
+	font-size: 12px;
+}
+
+
+.red12
+{
+	color: red;
+	font-size: 11pt;
+}
+
+.font12
+{
+	font-size: 11pt;
+}
+
+.addNews
+{
+	text-decoration: none;
+	color: #7A9FAD;
+	FONT-WEIGHT: bold ;
+}
+
+span.fw
+{
+	/*background: red;*/
+	width:235px;
+	height:100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/*border: 1px solid green;*/
+}
+
+.freeLine
+{
+	font-size: 20px;
+	color: #1163BD;
+	font: bold;
+}

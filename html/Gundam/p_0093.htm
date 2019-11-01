@@ -1,0 +1,410 @@
+
+<html>
+
+<head>
+<style type="text/css">
+<!--body,td,form,input,option,select,textarea,p,ol{font-family:新細明體,Arial;font-size:9pt;line-height:1.5};-->
+</style>
+<!--■表格文字格式(行距)結束■-->
+<script language="JavaScript">
+<!--
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_timelineGoto(tmLnName, fNew, numGotos) { //v2.0
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,lastKeyFr,propNum,theObj;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (numGotos != null)
+    if (tmLn.gotoCount == null) tmLn.gotoCount = 1;
+    else if (tmLn.gotoCount++ >= numGotos) {tmLn.gotoCount=0; return}
+  jmpFwd = (fNew > tmLn.curFrame);
+  for (i = 0; i < tmLn.length; i++) {
+    sprite = (jmpFwd)? tmLn[i] : tmLn[(tmLn.length-1)-i]; //count bkwds if jumping back
+    if (sprite.charAt(0) == "s") {
+      numKeyFr = sprite.keyFrames.length;
+      firstKeyFr = sprite.keyFrames[0];
+      lastKeyFr = sprite.keyFrames[numKeyFr - 1];
+      if ((jmpFwd && fNew<firstKeyFr) || (!jmpFwd && lastKeyFr<fNew)) continue; //skip if untouchd
+      for (keyFrm=1; keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]; keyFrm++);
+      for (j=0; j<sprite.values.length; j++) {
+        props = sprite.values[j];
+        if (numKeyFr == props.length) propNum = keyFrm-1 //keyframes only
+        else propNum = Math.min(Math.max(0,fNew-firstKeyFr),props.length-1); //or keep in legal range
+        if (sprite.obj != null) {
+          if (props.prop2 == null) sprite.obj[props.prop] = props[propNum];
+          else        sprite.obj[props.prop2][props.prop] = props[propNum];
+      } }
+    } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+  }
+  tmLn.curFrame = fNew;
+  if (tmLn.ID == 0) eval('MM_timelinePlay(tmLnName)');
+}
+
+function MM_initTimelines() {
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    document.MM_Time = new Array(2);
+    document.MM_Time[0] = new Array(1);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 15);
+    document.MM_Time[0][0].values = new Array(4);
+    document.MM_Time[0][0].values[0] = new Array(-142,-131,-121,-110,-99,-88,-78,-67,-56,-46,-35,-24,-13,-3,8);
+    document.MM_Time[0][0].values[0].prop = "left";
+    document.MM_Time[0][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[0][0].values[2] = new Array(200,200,200,200,200,200,200,200,200,200,200,200,200,200,200);
+    document.MM_Time[0][0].values[2].prop = "width";
+    if (!ns)
+        document.MM_Time[0][0].values[2].prop2 = "style";
+    document.MM_Time[0][0].values[3] = new Array(230,230,230,230,230,230,230,230,230,230,230,230,230,230,230);
+    document.MM_Time[0][0].values[3].prop = "height";
+    if (!ns)
+        document.MM_Time[0][0].values[3].prop2 = "style";
+    document.MM_Time[0].lastFrame = 15;
+    document.MM_Time[1] = new Array(1);
+    document.MM_Time["Timeline2"] = document.MM_Time[1];
+    document.MM_Time[1].MM_Name = "Timeline2";
+    document.MM_Time[1].fps = 15;
+    document.MM_Time[1][0] = new String("sprite");
+    document.MM_Time[1][0].slot = 1;
+    if (ns)
+        document.MM_Time[1][0].obj = document["Layer1"];
+    else
+        document.MM_Time[1][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[1][0].keyFrames = new Array(1, 15);
+    document.MM_Time[1][0].values = new Array(4);
+    document.MM_Time[1][0].values[0] = new Array(3,-8,-19,-30,-41,-52,-63,-75,-86,-97,-108,-119,-130,-141,-152);
+    document.MM_Time[1][0].values[0].prop = "left";
+    document.MM_Time[1][0].values[1] = new Array(11,11,11,11,11,11,11,11,11,11,11,11,11,11,11);
+    document.MM_Time[1][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[1][0].values[0].prop2 = "style";
+        document.MM_Time[1][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[1][0].values[2] = new Array(205,205,205,205,205,205,205,205,205,205,205,205,205,205,205);
+    document.MM_Time[1][0].values[2].prop = "width";
+    if (!ns)
+        document.MM_Time[1][0].values[2].prop2 = "style";
+    document.MM_Time[1][0].values[3] = new Array(260,260,260,260,260,260,260,260,260,260,260,260,260,260,260);
+    document.MM_Time[1][0].values[3].prop = "height";
+    if (!ns)
+        document.MM_Time[1][0].values[3].prop2 = "style";
+    document.MM_Time[1].lastFrame = 15;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+<title>機動戰士鋼彈-逆襲的夏亞</title>
+<base target="_self">
+
+</head>
+
+<body bgcolor="#000000" text="#000000" link="#0000FF"
+vlink="#800080">
+<div id="Layer1" style="position:absolute; left:3px; top:11px; width:205px; height:260px; z-index:1"> 
+  <table width="98%" border="1" height="276">
+    <tr> 
+      <td colspan="2" height="2" bgcolor="#3399CC"> 
+        <div align="center">人物介紹選單</div>
+      </td>
+      <td width="25%" height="2">
+        <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline1');MM_timelineGoto('Timeline1','1')"><img src="tr.gif" width="34" height="34" border="0" alt="開啟"></a></div>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2" height="146" bgcolor="#FFCC99"> 
+        <p align="center"><a href="g0079.htm"><font color="#333399">機動戰士鋼彈</font></a></p>
+        <p align="center"><font color="#333399"><a href="p0083.htm">機動戰士鋼彈0083</a></font></p>
+        <p align="center"><font color="#333399"><a href="p0083.htm">機動戰士Z鋼彈</a></font></p>
+        <p align="center"><font color="#333399"><a href="photo/zzp.htm">機動戰士鋼彈ZZ</a></font></p>
+        <p align="center"><font color="#333399"><a href="p_0093.htm">機動戰士鋼彈~逆襲的夏亞</a></font></p>
+        <p align="center"><font color="#333399"><a href="p_08ms.htm">機動戰士鋼彈第08MS小隊</a></font></p>
+      </td>
+      <td width="25%" height="146">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="2" height="41">&nbsp;</td>
+      <td width="25%" height="41">
+        <div align="right"><a href="#" onClick="MM_timelinePlay('Timeline2');MM_timelineGoto('Timeline2','1')"><img src="tl.gif" width="34" height="34" border="0" alt="關閉"></a></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div align="center">
+  <table border="0" cellspacing="1" width="100%" height="100%" align="center">
+    <tr>
+    <center>
+        <td valign="top" width="50%" height="204">
+<p align="center"><font color="#BBFFFF" size="2"><br>
+          </font></p>  
+          <p align="center"><font color="#C0C0C0" size="2" LANG="ZH-TW"><img
+        src="aq.jpg" alt="阿姆羅．雷" width="200"
+        height="134"></font><font color="#BBFFFF" size="2"><br>
+            阿姆羅．雷<br>
+          ヤу① ．яユ</font></p>         
+        </td>         
+</center>         
+         
+      <td valign="top" width="50%" rowspan="2" height="214">  
+        <p align="left"><font color="#BBFFFF" size="2"><img border="0" src="a_93.jpg" width="128" height="123"></font><font color="#E6E6E6"><font size="2">地球</font><font face="新細明體" size="2"><font size="2">聯邦軍大尉，屬</font><font size="2">於</font><font size="2">地球</font><font size="2">聯</font><font size="2">邦</font><font size="2">軍</font><font size="2">第</font>１<font size="2">３獨</font><font size="2">立</font><font size="2">部</font><font size="2">隊</font><font size="2">倫德</font></font><font face="新細明體" size="2" color="#E6E6E6">．</font><font face="新細明體" size="2"><font size="2">貝</font><font size="2">爾</font><font size="2">下</font><font size="2">的Ｓ級駕駛</font><font size="2">員</font>。<font size="2">能</font><font size="2">力</font><font size="2">一</font><font size="2">流</font>，<font size="2">駕</font><font size="2">駛</font></font><font face="標楷體" size="2">ν</font><font face="新細明體" size="2"><font size="2">鋼</font><font size="2">彈</font><font size="2">和夏亞</font><font size="2">所率領</font><font size="2">的ＮＥＯ</font><font size="2">吉翁對抗</font>，<font size="2">最</font><font size="2">後</font><font size="2">和</font><font size="2">夏</font><font size="2">亞</font><font size="2">在爆</font><font size="2">炸</font><font size="2">中的</font><font size="2">阿</font><font size="2">格西斯</font><font size="2">決</font><font size="2">戰</font><font size="2">中</font><font size="2">贏</font><font size="2">得</font><font size="2">勝</font><font size="2">利</font>，<font size="2">但</font><font size="2">是仍</font><font size="2">阻</font><font size="2">止</font><font size="2">阿</font><font size="2">格</font><font size="2">西</font><font size="2">斯的落下</font>，<font size="2">而</font><font size="2">用</font></font><font face="標楷體" size="2">ν</font><font face="新細明體" size="2"><font size="2">鋼</font><font size="2">彈</font><font size="2">去</font><font size="2">擋</font>，<font size="2">戰</font><font size="2">後</font><font size="2">生</font><font size="2">死</font><font size="2">不</font><font size="2">明．．．</font>&nbsp;．</font><font color="#c0c0c0" size="2"><br>     
+          </font></font></p>     
+          <p align="left">　</p>     
+    </td>       
+    </tr>       
+<tr>     
+         
+      <td valign="top" width="260" height="24">  
+        <hr>     
+        </td>       
+</tr>     
+    <tr>       
+         
+      <td valign="top" width="260" rowspan="2" height="242"> 
+        <p align="left"><font color="#FFFFFF" size="2"><img border="0" src="c092.jpg" width="236" height="167"></font><font      
+        size="2" color="#E6E6E6"><br>      
+          </font><font color="#E6E6E6"><font size="2">吉翁</font><font size="2">公</font><font size="2">國</font><font size="2">創</font><font size="2">始</font><font size="2">者</font><font face="新細明體" size="2">，</font><font size="2">吉</font><font size="2">翁<font face="新細明體">．</font></font><font size="2">索</font><font size="2">姆</font><font face="新細明體" size="2">．</font><font size="2">戴</font><font size="2">肯</font><font size="2">的</font><font size="2">兒子</font><font face="新細明體" size="2">，</font><font size="2">率</font><font size="2">領</font><font face="新細明體" size="2">Ｎ</font><font size="2"><font face="新細明體">ＥＯ</font>吉</font><font size="2">翁</font><font size="2">發</font><font size="2">動</font><font size="2">地</font><font size="2">球</font><font size="2">寒</font><font size="2">冷</font><font size="2">化</font><font size="2">作</font><font size="2">戰</font><font size="2">，駕</font><font size="2">駛</font><font size="2">沙</font><font size="2">薩</font><font size="2">比</font><font face="新細明體" size="2">。</font><font size="2">最</font><font size="2">後和</font><font size="2">阿</font><font size="2">姆</font><font size="2">羅</font><font size="2">在</font><font size="2">爆</font><font size="2">炸</font><font size="2">中</font><font size="2">的</font><font size="2">阿</font><font size="2">格</font><font size="2">西</font><font size="2">斯</font><font size="2">決</font><font size="2">戰</font><font size="2">中</font><font size="2">失</font><font size="2">敗</font><font size="2">，戰</font><font size="2">後生</font><font size="2">死</font><font size="2">不</font><font size="2">明</font><font face="新細明體" size="2"> </font><font size="2">．</font><font face="新細明體" size="2">     
+          </font><font size="2">．</font><font face="新細明體" size="2"> </font><font size="2">．．</font></font>        </p>     
+          <p align="left"><br>   
+        </p>     
+        </td>     
+        <center>    
+    
+        <td valign="middle" width="492" height="217" align="center">  
+          <p align="center"><font color="#BBFFFF" lang="ZH-TW" size="2"><img     
+        src="c091.jpg" alt="夏亞．阿茲那布"     
+        width="245" height="170"><br>     
+          </font><font color="#BBFFFF" lang="ZH-TW" size="2">夏亞．阿茲那布<br>     
+          Ёцヤ．ヤИЮйю</font></p>    
+</td>      
+    </center></tr>      
+        <tr>    
+         
+      <td valign="top" width="492" height="21">  
+        <hr>    
+          </td>      
+        </tr>    
+    <tr>      
+         
+      <td valign="top" width="260" height="155">  
+        <p align="center"><font color="#BBFFFF"><img border="0" src="nanai.jpg" width="218" height="153"></font>     
+        </td>     
+         
+      <td valign="top" width="492" height="186" rowspan="2"></td>      
+    </tr>      
+        <tr>    
+         
+      <td valign="top" width="260" height="27">  
+        <hr>    
+        </td>     
+        </tr>    
+      
+    <tr>      
+         
+      <td valign="top" width="260" height="219" rowspan="2"> 
+<p align="left"><font size="2" LANG="ZH-TW" color="#BBFFFF"><br>     
+          </font>        </p>     
+          <p align="left">　        </p>  
+          <p align="left">　        </p>  
+          <p align="left"><font color="#E6E6E6"><font size="2">新吉</font><font size="2">翁軍</font><font size="2">奇</font><font size="2">拉．</font><font size="2">多</font><font size="2">加</font><font size="2">隊</font><font size="2">的</font><font size="2">小</font><font size="2">隊</font><font size="2">長</font><font face="新細明體" size="2">，</font><font size="2">非</font><font size="2">常</font><font size="2">討</font><font size="2">厭</font><font size="2">新</font><font size="2">人類<font face="新細明體">，</font></font><font size="2">最</font><font size="2">後被</font><font size="2">拉</font><font size="2">．</font><font size="2">凱拉</font><font size="2">姆</font><font size="2">擊</font><font size="2">落</font></font>   
+        </td>   
+        <center>  
+  
+        <td valign="top" width="492" height="194"> 
+          <p align="center"><font color="#BBFFFF" size="2" LANG="ZH-TW"><img   
+        src="rez.jpg" alt="雷茲．修娜達" width="223"   
+        height="150"></font><font LANG="ZH-TW" color="#BBFFFF"><br>   
+</font>        <font size="2" LANG="ZH-TW" color="#BBFFFF">雷茲．修娜達<br>
+            яИ⑦．ЁшЮユФみ</font><font color="#E6E6E6" size="2"><br>
+            </font></p>  
+</td>    
+    </center></tr>    
+        <tr>  
+        
+      <td valign="top" width="492" height="21"> 
+        <hr>  
+          </td>    
+        </tr>  
+    <tr>    
+        
+      <td valign="top" width="260" height="212">
+<p    
+        align="center"><img border="0" src="b_0093.jpg" width="258" height="184"><font LANG="ZH-TW" size="2" color="#BBFFFF"><br>   
+          布萊特．諾亞<br>   
+        йьみЬ．вヤ   
+        </font></p>   
+        </td>   
+        
+      <td valign="top" width="492" height="237" rowspan="2"> 
+        <p>　</p>
+          <p>　</p>
+          <p><font color="#E6E6E6"><font  
+        size="2">一年戰爭時以新瑞戰艦白色基地活躍著</font><font size="2">，現為倫德．貝爾，</font><font      
+        size="2">拉凱拉姆的艦長</font><font size="2" face="新細明體">，</font><font size="2">身經百戰</font><font size="2" face="新細明體">，</font><font size="2">和米萊<br>
+          結婚</font></font><font size="2" face="新細明體" color="#E6E6E6">。</font>   
+        </td>     
+    </tr>     
+        <tr>   
+        
+      <td valign="top" width="260" height="21"> 
+        <hr>   
+        </td>    
+        </tr>   
+     
+    <tr>     
+        
+      <td valign="top" width="260" height="214" rowspan="2">
+<p     
+        align="left">　</p>   
+          <p    
+        align="left">　</p>   
+          <p    
+        align="left"><font color="#E6E6E6"><font  
+        size="2">  
+        倫得貝爾的技術士官也是阿姆羅的戀，</font><font      
+        size="2">但卻因為擊落了魁斯而受到哈薩威的攻擊而死</font></font><font size="2" face="新細明體" color="#E6E6E6">。</font></p>    
+        </td>    
+        <center>   
+   
+        <td valign="top" width="492" height="189"> 
+          <p align="center"><font size="2" color="#BBFFFF"><img src="j.jpg"   
+        alt="倩．亞琪" width="158" height="164"><font LANG="ZH-TW"><br>   
+          倩．亞琪<br>
+            Хラみ⑦．ヤヰ </font></font><font color="#E6E6E6" size="2"><br>
+            </font></p>  
+</td>    
+    </center></tr>    
+        <tr>  
+        
+      <td valign="top" width="492" height="21"> 
+        <hr>  
+          </td>    
+        </tr>  
+    <tr>    
+        
+      <td valign="top" width="260" height="195">
+<p    
+        align="center"><font size="2" color="#BBFFFF"><img src="k.jpg"   
+        alt="奇耐．加斯" width="173" height="167"><font LANG="ZH-TW"><br>   
+          奇耐．加斯<br>   
+        ヰщбユ．ヮЗ   
+        </font></font></p>   
+        </td>   
+        
+      <td valign="top" width="492" height="220" rowspan="2"><font color="#E6E6E6" size="2" face="新細明體"><br>
+        </font> 
+        <p>　</p> 
+          <p><font color="#E6E6E6"><font size="2">新吉翁亞克托．多加的駕駛員，是利用人工強化的方法成為新人類</font><font size="2" face="新細明體">，</font><font size="2">喜歡魁斯．巴拉雅，不希望夏亞得到她而抓了蘇威脅阿姆羅交出ν鋼彈．</font><font     
+        size="2">最後被阿姆羅擊落。 </font></font></p>    
+        </td>      
+    </tr>      
+        <tr>    
+        
+      <td valign="top" width="260" height="21"> 
+        <hr>    
+        </td>     
+        </tr>    
+      
+    <tr>      
+        
+      <td valign="top" width="260" height="224" rowspan="2">
+<p      
+        align="left"></p>     
+          <p      
+        align="left">　</p>     
+          <p      
+        align="left"><font size="2" color="#E6E6E6"><span style="letter-spacing: 0">   
+        連邦宇宙軍參謀次官亞提納瓦的女兒，有一次聽到阿姆羅與夏亞的爭辯<font size="2" face="新細明體">，</font>贊同夏亞的想法，而加入了<font face="新細明體">新－</font>吉翁，能力不錯，夏亞把新銳ＭＡα－ 阿吉爾給她駕駛最後為保護哈薩威而被倩擊落      
+          <font face="新細明體">。</font></span></font></p>       
+        </td>       
+        <center>      
+      
+        <td valign="top" width="492" height="199">  
+          <p align="center"><font size="2" color="#BBFFFF"><img src="q.jpg"       
+        alt="魁斯．巴拉雅" width="182" height="158"><font LANG="ZH-TW"><br>       
+          魁斯．巴拉雅<br>
+            ヱュЗ．еьヤ </font></font><font color="#E6E6E6" size="2"><br>
+            </font></p>      
+</td>        
+    </center></tr>        
+        <tr>      
+         
+      <td valign="top" width="492" height="23">  
+        <hr>      
+          </td>        
+        </tr>      
+    <tr>        
+         
+      <td valign="top" width="260" height="175"> 
+        <p align="center"><font LANG="ZH-TW" color="#BBFFFF" size="2"><img       
+        src="hasa.jpg" alt="哈薩威．諾亞"       
+        width="162" height="147"></font><font LANG="ZH-TW" color="#BBFFFF" size="2"><br>       
+        哈薩威．諾亞<br>       
+        гДヨラユ．вヤ</font></p>       
+        </td>       
+         
+      <td valign="top" width="492" height="200" rowspan="2"><font       
+        size="2" color="#E6E6E6"><br>       
+        </font>      
+          <p>　</p>  
+          <p><font size="2" color="#E6E6E6">   
+          布萊特的兒子，喜歡魁斯．巴拉雅，想要把加入ＮＥＯ吉翁的魁斯搶回來，後因氣憤倩擊墜了魁斯，而也擊落了倩。</font></p>    
+        </td>      
+    </tr>      
+        <tr>    
+        
+      <td valign="top" width="260" height="21"> 
+        <hr>    
+        </td>     
+        </tr>    
+</table>      
+</div>      
+      
+</body>     
+</html>     
