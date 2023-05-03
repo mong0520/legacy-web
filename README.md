@@ -1,7 +1,6 @@
 # 備份 1999 ~ 2005 左右的網頁作品
-> all sites are deployed to heroku as well
 
-如何啟動
+Local Run
 ```
 $ make build
 $ make up
