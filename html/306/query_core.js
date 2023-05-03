@@ -1,9 +1,9 @@
 //Author:linss<linss@ms1.url.com.tw> 	Release:2002/4/11
 var Dest_Win,Page_Len,Page_Cnt,Part_Len,Show_Msg,Last_Str,Curr_Str,Temp_Res,NotFound
 
-Dest_Win="main"	//³]©w¥Ø¼Ðµøµ¡
-Page_Len=9		//³]©w¤À­¶µ§¼Æ
-Part_Len=100		//Â^¨ú¤å¦rªø«×
+Dest_Win="main"	//ï¿½]ï¿½wï¿½Ø¼Ðµï¿½ï¿½ï¿½
+Page_Len=9		//ï¿½]ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+Part_Len=100		//ï¿½^ï¿½ï¿½ï¿½ï¿½rï¿½ï¿½ï¿½ï¿½
 
 function Query(v,p){
 var j=0
@@ -36,13 +36,13 @@ NotFound=false
 }
 }
 Page_Cnt=parseInt((j+Page_Len-1)/Page_Len)
-Show_Msg=(NotFound)?"§ä¤£¨ì¬ÛÃö¸ê®Æ¡I":"¦@·j´M¨ì <font color=\"#3377ee\">"+j+"</font> µ§¸ê®Æ¡C"
+Show_Msg=(NotFound)?"ï¿½ä¤£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡I":"ï¿½@ï¿½jï¿½Mï¿½ï¿½ <font color=\"#3377ee\">"+j+"</font> ï¿½ï¿½ï¿½ï¿½Æ¡C"
 Last_Str=Curr_Str
 }
 showResultPage(p)
 
 }else{
-alert("±z¥²¶·¥ý¿é¤JÃöÁä¦r¤~¯à¶i¦æ·j´M¡I")
+alert("ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½rï¿½~ï¿½ï¿½iï¿½ï¿½jï¿½Mï¿½I")
 document.QF.QT.focus()
 }
 }
@@ -58,18 +58,18 @@ open()
 writeln("<script>")
 write("var ANSICode=\""+escape("<html>"))
 write(escape("<head>"))
-write(escape("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=big5\">"))
+write(escape("<meta http-equiv=\"Content-Type\" content=\"text/html; CHARSET=utf-8\">"))
 write(escape("<link rel=stylesheet type=\"text/css\" href=\"./query_demo.css\">"))
 write(escape("</head>"))
 write(escape("<body background=back.jpg marginwidth=0 margintop=0>"))
 write(escape("<table width=100% border=0 cellpadding=0 cellspacing=0><tr>"))
 write(escape("<td height=26 bgcolor=#4444FF class=\"result\"><table width=100% border=0 cellpadding=0 cellspacing=2><tr>"))
-write(escape("<td>±z¿é¤JªºÃöÁä¦r¡u <font color=\"#3377ee\">"+Curr_Str+"</font> ¡v"+Show_Msg+"</td>"))
+write(escape("<td>ï¿½zï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rï¿½u <font color=\"#3377ee\">"+Curr_Str+"</font> ï¿½v"+Show_Msg+"</td>"))
 if(!NotFound){
 write(escape("<form><td align=right><select class=\"pager\" onchange=\"parent."+this.window.name+".Query('"+Last_Str+"',this.options[this.selectedIndex].value)\">"))
 for(i=1;i<=Page_Cnt;i++){
 var s=(i==p)?" selected class=\"selection\">":">"
-write(escape("<option value=\""+i+"\""+s+"&nbsp;²Ä "+i+" ­¶&nbsp;"))
+write(escape("<option value=\""+i+"\""+s+"&nbsp;ï¿½ï¿½ "+i+" ï¿½ï¿½&nbsp;"))
 }
 write(escape("</select></td></form>"))
 }
@@ -83,7 +83,7 @@ write(escape("<tr><td><div class=\"source\">"+Temp_Res[i][2]+"</div></td></tr>")
 }
 if(!NotFound){
 write(escape("<tr><td height=\"36\" align=\"center\">"))
-write(escape("­¶¦¸¡G<font face=\"verdana\"><b>"))
+write(escape("ï¿½ï¿½ï¿½ï¿½ï¿½G<font face=\"verdana\"><b>"))
 for(i=1;i<=Page_Cnt;i++){
 if(i==p){write(escape("[<font color=\"#4444FF\">"+i+"</font>]&nbsp;"))}else{write(escape("<a href=\"javascript:parent."+this.window.name+".Query('"+Last_Str+"',"+i+")\" hidefocus=\"true\">"+i+"</a>&nbsp;"))}
 }

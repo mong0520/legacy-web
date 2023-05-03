@@ -2,9 +2,9 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta http-equiv="Content-Type" content="text/html; CHARSET=utf-8">
 <!-- TemplateBeginEditable name="doctitle" -->
-<title>無標題文件</title>
+<title>嚙盤嚙踝蕭嚙瘩嚙踝蕭嚙�</title>
 <!-- TemplateEndEditable -->
 <!-- TemplateBeginEditable name="head" -->
 <!-- TemplateEndEditable -->
@@ -25,9 +25,9 @@ body {
     <td height="108" colspan="3"><img src="../pic/banner.png" width="800" height="120"></td>
   </tr>
   <tr>
-    <td height="45" class="Content01"><div align="center"><img src="../pic/icon.gif" width="9" height="9"> <a href="index.htm">專題簡介</a></div></td>
-    <td class="Content01"><div align="center"><img src="../pic/icon.gif" width="9" height="9"> <a href="team.htm">組員資料</a></div></td>
-    <td class="Content01"><div align="center"><img src="../pic/icon.gif" width="9" height="9"> <a href="../system01.htm">系統展示</a></div></td>
+    <td height="45" class="Content01"><div align="center"><img src="../pic/icon.gif" width="9" height="9"> <a href="index.htm">嚙瞎嚙瘩簡嚙踝蕭</a></div></td>
+    <td class="Content01"><div align="center"><img src="../pic/icon.gif" width="9" height="9"> <a href="team.htm">嚙調哨蕭嚙踝蕭嚙�</a></div></td>
+    <td class="Content01"><div align="center"><img src="../pic/icon.gif" width="9" height="9"> <a href="../system01.htm">嚙緣嚙諄展嚙踝蕭</a></div></td>
   </tr>
   <tr valign="top">
     <td height="211" colspan="3"><!-- TemplateBeginEditable name="editPane" -->
@@ -35,7 +35,7 @@ body {
     <!-- TemplateEndEditable --></td>
   </tr>
   <tr valign="middle" bgcolor="#F8D788">
-    <td colspan="3" class="content06"><div align="center">中原大學　資訊管理學系　專題組第四組 <a href="http://140.135.113.214:8080/ws/ver2/index.jsp">系統網址</a></div></td>
+    <td colspan="3" class="content06"><div align="center">嚙踝蕭嚙踝蕭j嚙褒　嚙踝蕭T嚙豬理嚙褒系嚙瑾嚙瞎嚙瘩嚙調第四嚙踝蕭 <a href="http://140.135.113.214:8080/ws/ver2/index.jsp">嚙緣嚙諄綽蕭嚙罷</a></div></td>
   </tr>
 </table>
 </body>
