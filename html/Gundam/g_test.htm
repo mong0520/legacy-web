@@ -10,12 +10,12 @@
 </head>
 
 <body bgcolor="#000000" onLoad="MM_initInteractions()">
-<div align="center"><img src="qus.jpg" width="400" height="98"> <font size="2" color="#FFFFFF">--¥Ø«e¥ı±À¥X4ÃD,´X¤Ñ«á±N¦A¼W¥[</font><font color="#FFFFFF"> 
+<div align="center"><img src="qus.jpg" width="400" height="98"> <font size="2" color="#FFFFFF">--ç›®å‰å…ˆæ¨å‡º4é¡Œ,å¹¾å¤©å¾Œå°‡å†å¢åŠ </font><font color="#FFFFFF"> 
   -- </font> 
   <table width="86%" border="1" bordercolor="#3366CC">
     <tr> 
       <td width="33%"> 
-        <div align="left"><span name="G01question"><font size="5" color="#FFFFFF">Q1</font><font size="2" color="#CCFFFF">Áp¨¹©ó¨º¤@¾Ô§Ğ¥¢±Ñ«áµo°ÊV§@¾Ô?</font></span> 
+        <div align="left"><span name="G01question"><font size="5" color="#FFFFFF">Q1</font><font size="2" color="#CCFFFF">è¯é‚¦æ–¼é‚£ä¸€æˆ°å½¹å¤±æ•—å¾Œç™¼å‹•Vä½œæˆ°?</font></span> 
         </div>
       </td>
       <td width="67%" background="testb.jpg"><interaction name="MultCh_ImageRadios01" object="G01" template="010_Multiple Choice/030_MultCh_ImageRadios_04.agt" includesrc="interactionClass.js,elemIbtnClass.js"> 
@@ -26,25 +26,25 @@
       onMouseOver="G01.e['choice2'].update('onmouseover');"
       onMouseOut="G01.e['choice2'].update('onmouseout');"
       onMouseDown="G01.e['choice2'].update('onmousedown');"> <img name="G01choice2Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            <font color="#000000">¶ø±oÂÄ<br>
+            <font color="#000000">å¥§å¾—è–©<br>
             </font></span> <font color="#000000"><span name="G01choice3"> <a name="G01choice3Inp" href="#"
       onClick="G01.e['choice3'].update('onclick');return false"
       onMouseOver="G01.e['choice3'].update('onmouseover');"
       onMouseOut="G01.e['choice3'].update('onmouseout');"
       onMouseDown="G01.e['choice3'].update('onmousedown');"> <img name="G01choice3Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            </span></font></font><font size="2"><span name="G01choice3">§J¨½´¶´µ</span></font><font size="2" color="#CCFFFF"><font color="#000000"><span name="G01choice3"><br>
+            </span></font></font><font size="2"><span name="G01choice3">å…‹é‡Œæ™®æ–¯</span></font><font size="2" color="#CCFFFF"><font color="#000000"><span name="G01choice3"><br>
             </span> <span name="G01choice1"> <a name="G01choice1Inp" href="#"
       onClick="G01.e['choice1'].update('onclick');return false"
       onMouseOver="G01.e['choice1'].update('onmouseover');"
       onMouseOut="G01.e['choice1'].update('onmouseout');"
-      onMouseDown="G01.e['choice1'].update('onmousedown');"> <img name="G01choice1Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a>¾|©i 
+      onMouseDown="G01.e['choice1'].update('onmousedown');"> <img name="G01choice1Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a>é­¯å§† 
             <br>
             </span> <span name="G01choice4"> <a name="G01choice4Inp" href="#"
       onClick="G01.e['choice4'].update('onclick');return false"
       onMouseOver="G01.e['choice4'].update('onmouseover');"
       onMouseOut="G01.e['choice4'].update('onmouseout');"
       onMouseDown="G01.e['choice4'].update('onmousedown');"> <img name="G01choice4Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            ©ÒÃ¹ªù</span></font></font><span name="G01choice4"><br>
+            æ‰€ç¾…é–€</span></font></font><span name="G01choice4"><br>
             </span> 
           </form>
           <form name="G01controls">
@@ -67,10 +67,10 @@
     G01.am('end');
     G01.am('segm','Segment: Correctness_',1,0);
     G01.am('cond','Correct_01','G01.correct == true',0);
-    G01.am('actn','Popup Message','MM_popupMsg(\'µª¹ï¤F~\')','');
+    G01.am('actn','Popup Message','MM_popupMsg(\'ç­”å°äº†~\')','');
     G01.am('end');
     G01.am('cond','Incorrect_','G01.correct == (false)',0);
-    G01.am('actn','Popup Message','MM_popupMsg(\'¤£¹ï³á~\')','');
+    G01.am('actn','Popup Message','MM_popupMsg(\'ä¸å°å–”~\')','');
     G01.am('end');
     G01.am('cond','Unknown Response_','G01.knownResponse == false',0);
     G01.am('actn','Popup Message','MM_popupMsg(\'Unknown Response\')','');
@@ -89,7 +89,7 @@
     </tr>
     <tr> 
       <td width="33%"> 
-        <div align="left"><span name="G06question"><font size="5" color="#FFFFFF">Q2</font><font color="#CCFFFF" size="2">¤@¦~¾Ôª§©ó¦ó®É¼Éµo?</font></span></div>
+        <div align="left"><span name="G06question"><font size="5" color="#FFFFFF">Q2</font><font color="#CCFFFF" size="2">ä¸€å¹´æˆ°çˆ­æ–¼ä½•æ™‚æš´ç™¼?</font></span></div>
       </td>
       <td width="67%" background="testb.jpg"><interaction name="MultCh_ImageRadios06" object="G06" template="010_Multiple Choice/030_MultCh_ImageRadios_04.agt" includesrc="interactionClass.js,elemIbtnClass.js"> 
         <div name="G06Layer"> 
@@ -99,25 +99,25 @@
       onMouseOver="G06.e['choice1'].update('onmouseover');"
       onMouseOut="G06.e['choice1'].update('onmouseout');"
       onMouseDown="G06.e['choice1'].update('onmousedown');"> <img name="G06choice1Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            1¤ë2¤é<br>
+            1æœˆ2æ—¥<br>
             </span> <span name="G06choice2"> <a name="G06choice2Inp" href="#"
       onClick="G06.e['choice2'].update('onclick');return false"
       onMouseOver="G06.e['choice2'].update('onmouseover');"
       onMouseOut="G06.e['choice2'].update('onmouseout');"
       onMouseDown="G06.e['choice2'].update('onmousedown');"> <img name="G06choice2Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            1¤ë3¤é<br>
+            1æœˆ3æ—¥<br>
             </span> <span name="G06choice3"> <a name="G06choice3Inp" href="#"
       onClick="G06.e['choice3'].update('onclick');return false"
       onMouseOver="G06.e['choice3'].update('onmouseover');"
       onMouseOut="G06.e['choice3'].update('onmouseout');"
       onMouseDown="G06.e['choice3'].update('onmousedown');"> <img name="G06choice3Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            1¤ë4¤é<br>
+            1æœˆ4æ—¥<br>
             </span> <span name="G06choice4"> <a name="G06choice4Inp" href="#"
       onClick="G06.e['choice4'].update('onclick');return false"
       onMouseOver="G06.e['choice4'].update('onmouseover');"
       onMouseOut="G06.e['choice4'].update('onmouseout');"
       onMouseDown="G06.e['choice4'].update('onmousedown');"> <img name="G06choice4Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            1¤ë5¤é<br>
+            1æœˆ5æ—¥<br>
             </span> 
           </form>
           <form name="G06controls">
@@ -163,7 +163,7 @@
     <tr> 
       <td width="33%"> 
         <div align="left"><font size="5"><span name="G05question"><font color="#FFFFFF">Q3</font> 
-          </span></font><font color="#CCFFFF"><span name="G05question"><font size="2">®L¨Èªº¥»¦W¬O? 
+          </span></font><font color="#CCFFFF"><span name="G05question"><font size="2">å¤äºçš„æœ¬åæ˜¯? 
           </font></span></font></div>
       </td>
       <td width="67%" background="testb.jpg"><interaction name="MultCh_ImageRadios05" object="G05" template="010_Multiple Choice/030_MultCh_ImageRadios_04.agt" includesrc="interactionClass.js,elemIbtnClass.js"> 
@@ -174,19 +174,19 @@
       onMouseOver="G05.e['choice1'].update('onmouseover');"
       onMouseOut="G05.e['choice1'].update('onmouseout');"
       onMouseDown="G05.e['choice1'].update('onmousedown');"> <img name="G05choice1Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            <font size="2">³Í´µ§B¡D¹p©i¡DÀ¹ªÖ<br>
+            <font size="2">å‡±æ–¯ä¼¯ï¼é›·å§†ï¼æˆ´è‚¯<br>
             </font></span> <font size="2"><span name="G05choice2"> <a name="G05choice2Inp" href="#"
       onClick="G05.e['choice2'].update('onclick');return false"
       onMouseOver="G05.e['choice2'].update('onmouseover');"
       onMouseOut="G05.e['choice2'].update('onmouseout');"
       onMouseDown="G05.e['choice2'].update('onmousedown');"> <img name="G05choice2Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            §J¥Ë¯SÃ¹¡D¤Ú¦N¨º<br>
+            å…‹ç“¦ç‰¹ç¾…ï¼å·´å‰é‚£<br>
             </span> <span name="G05choice3"> <a name="G05choice3Inp" href="#"
       onClick="G05.e['choice3'].update('onclick');return false"
       onMouseOver="G05.e['choice3'].update('onmouseover');"
       onMouseOut="G05.e['choice3'].update('onmouseout');"
       onMouseDown="G05.e['choice3'].update('onmousedown');"> <img name="G05choice3Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            ®L¨È¡DÀ¹ªÖ</span></font><span name="G05choice3"><br>
+            å¤äºï¼æˆ´è‚¯</span></font><span name="G05choice3"><br>
             </span> 
           </form>
           <form name="G05controls">
@@ -230,7 +230,7 @@
     </tr>
     <tr> 
       <td width="33%"> 
-        <div align="left"><span name="G04question"><font color="#FFFFFF" size="5">Q4</font><font color="#CCFFFF" size="2">¨º¤@¾Ôª§«á¦N¯Î¦b¼Ú¨È¤è­±¶Õ¤O®ø¥¢? 
+        <div align="left"><span name="G04question"><font color="#FFFFFF" size="5">Q4</font><font color="#CCFFFF" size="2">é‚£ä¸€æˆ°çˆ­å¾Œå‰ç¿åœ¨æ­äºæ–¹é¢å‹¢åŠ›æ¶ˆå¤±? 
           </font></span></div>
       </td>
       <td width="67%" background="testb.jpg"><interaction name="MultCh_ImageRadios04" object="G04" template="010_Multiple Choice/030_MultCh_ImageRadios_04.agt" includesrc="interactionClass.js,elemIbtnClass.js"> 
@@ -241,26 +241,26 @@
       onMouseOver="G04.e['choice1'].update('onmouseover');"
       onMouseOut="G04.e['choice1'].update('onmouseout');"
       onMouseDown="G04.e['choice1'].update('onmousedown');"> <img name="G04choice1Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            <font color="#000000" size="2">ªü.¤Ú¥Ë.®w<br>
+            <font color="#000000" size="2">é˜¿.å·´ç“¦.åº«<br>
             </font></span> <font color="#000000" size="2"><span name="G04choice2"> 
             <a name="G04choice2Inp" href="#"
       onClick="G04.e['choice2'].update('onclick');return false"
       onMouseOver="G04.e['choice2'].update('onmouseover');"
       onMouseOut="G04.e['choice2'].update('onmouseout');"
       onMouseDown="G04.e['choice2'].update('onmousedown');"> <img name="G04choice2Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            ¸ë¥¬Ã¹<br>
+            è³ˆå¸ƒç¾…<br>
             </span> <span name="G04choice3"> <a name="G04choice3Inp" href="#"
       onClick="G04.e['choice3'].update('onclick');return false"
       onMouseOver="G04.e['choice3'].update('onmouseover');"
       onMouseOut="G04.e['choice3'].update('onmouseout');"
       onMouseDown="G04.e['choice3'].update('onmousedown');"> <img name="G04choice3Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            </span><span name="G04choice4">¶ø±oÂÄ</span></font><font color="#000000" size="2"><span name="G04choice3"><br>
+            </span><span name="G04choice4">å¥§å¾—è–©</span></font><font color="#000000" size="2"><span name="G04choice3"><br>
             </span> <span name="G04choice4"> <a name="G04choice4Inp" href="#"
       onClick="G04.e['choice4'].update('onclick');return false"
       onMouseOver="G04.e['choice4'].update('onmouseover');"
       onMouseOut="G04.e['choice4'].update('onmouseout');"
       onMouseDown="G04.e['choice4'].update('onmousedown');"> <img name="G04choice4Btn" src="images/buttons/lighted_mini.gif" border=0 align="absmiddle"></a> 
-            </span><span name="G04choice3">¾|©i</span></font><span name="G04choice4"><br>
+            </span><span name="G04choice3">é­¯å§†</span></font><span name="G04choice4"><br>
             </span> 
           </form>
           <form name="G04controls">
@@ -283,10 +283,10 @@
     G04.am('end');
     G04.am('segm','Segment: Correctness_',1,0);
     G04.am('cond','Correct_01','G04.correct == true',0);
-    G04.am('actn','Popup Message','MM_popupMsg(\'µª¹ï¤F~\')','');
+    G04.am('actn','Popup Message','MM_popupMsg(\'ç­”å°äº†~\')','');
     G04.am('end');
     G04.am('cond','Incorrect_','G04.correct == (false)',0);
-    G04.am('actn','Popup Message','MM_popupMsg(\'¤£¹ï³á~\')','');
+    G04.am('actn','Popup Message','MM_popupMsg(\'ä¸å°å–”~\')','');
     G04.am('end');
     G04.am('cond','Unknown Response_','G04.knownResponse == false',0);
     G04.am('actn','Popup Message','MM_popupMsg(\'Unknown Response\')','');
